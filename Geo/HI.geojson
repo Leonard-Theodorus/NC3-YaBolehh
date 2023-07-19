@@ -1,0 +1,142 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "feature_type": "anchor",
+      "properties": {
+        "building_id": ["building001"],
+        "category": "ground",
+        "name": null
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [106.8228283046721, -6.193427849352005],
+            [106.82313662424451, -6.193431774517791],
+            [106.82310874518373, -6.191799013386358],
+            [106.82315397056584, -6.191800471325948],
+            [106.82316306507505, -6.19219266191358],
+            [106.82325619836121, -6.192192981914133],
+            [106.823234694772, -6.191319531912384],
+            [106.82314253653738, -6.1913225859358505],
+            [106.82314868041954, -6.19160661004355],
+            [106.8231056732426, -6.191609664066718],
+            [106.8230841714485, -6.1903666755111715],
+            [106.82325620015479, -6.19035751342426],
+            [106.82325312821365, -6.189829166129655],
+            [106.82313946638988, -6.189832220161705],
+            [106.82313946638988, -6.190104028950458],
+            [106.82309645921293, -6.190104028950458],
+            [106.82310099107912, -6.189210519150009],
+            [106.82279350623111, -6.189204627337617],
+            [106.82278481494183, -6.190963340453905],
+            [106.82265427617517, -6.190963340453905],
+            [106.82265753964424, -6.19116773991783],
+            [106.82278155147276, -6.191169362136165],
+            [106.82280656178989, -6.1925838088668],
+            [106.82270362293053, -6.192584326354151],
+            [106.82271127792842, -6.19296932892523],
+            [106.82278043718543, -6.19296932892523],
+            [106.82277582656917, -6.192888350034636],
+            [106.82281424837811, -6.192889877937688],
+            [106.8228283046721, -6.193427849352005]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": 0
+    },
+    {
+      "type": "Feature",
+      "feature_type": "amenity",
+      "id": "amenity001",
+      "properties": {
+        "accessibility": null,
+        "alt_name": "Menuju Plaza Indonesia",
+        "category": "Exit Gate",
+        "name": "GateA"
+      },
+      "geometry": {
+        "coordinates": [106.82274727555739, -6.192926352526385],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "feature_type": "amenity",
+      "id": "amenity002",
+      "properties": {
+        "accessibility": "wheelchair",
+        "alt_name": "Menuju Kedutaan Besar Jepang",
+        "category": "Exit Gate",
+        "name": "GateB"
+      },
+      "geometry": {
+        "coordinates": [106.82267983117902, -6.191064905411537],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "feature_type": "amenity",
+      "id": "amenity003",
+      "properties": {
+        "accessibility": null,
+        "alt_name": "Menuju Halte Transjakarta",
+        "category": "Exit Gate",
+        "name": "GateC"
+      },
+      "geometry": {
+        "coordinates": [106.8229769932293, -6.192677047490065],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "feature_type": "amenity",
+      "id": "amenity004",
+      "properties": {
+        "accessibility": "wheelchair",
+        "alt_name": "Menuju Hotel Pullman",
+        "category": "Exit Gate",
+        "name": "GateD"
+      },
+      "geometry": {
+        "coordinates": [106.82321528272388, -6.192163397025482],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "feature_type": "amenity",
+      "id": "amenity005",
+      "properties": {
+        "accessibility": null,
+        "alt_name": "Menuju Bank Sinarmas",
+        "category": "Exit Gate",
+        "name": "GateE"
+      },
+      "geometry": {
+        "coordinates": [106.82319220690357, -6.191344089783797],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "feature_type": "amenity",
+      "id": "amenity006",
+      "properties": {
+        "accessibility": null,
+        "alt_name": "Menuju Kedutaan Besar Prancis",
+        "category": "Exit Gate",
+        "name": "GateF"
+      },
+      "geometry": {
+        "coordinates": [106.8232076846885, -6.189889815916217],
+        "type": "Point"
+      }
+    }
+  ]
+}
+
