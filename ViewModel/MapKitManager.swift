@@ -93,4 +93,28 @@ struct MapKitManager{
         
         return annotations
     }
+    
+    func getNearestPlace(from coordinate : CLLocationCoordinate2D) async -> [String]{
+        var nearbyPlaces = [String]()
+        let searchReq = MKLocalSearch.Request()
+        
+        searchReq.resultTypes = .pointOfInterest
+        searchReq.region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 300, longitudinalMeters: 300)
+        let localSearch = MKLocalSearch(request: searchReq)
+        do {
+            let response = try await localSearch.start()
+            let mapItems = response.mapItems
+            for mapItem in mapItems {
+                if let placeName = mapItem.name{
+                    nearbyPlaces.append(placeName)
+                    print(placeName)
+                }
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        return nearbyPlaces
+    }
+    
 }

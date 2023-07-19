@@ -9,8 +9,12 @@ import UIKit
 import MapKit
 import CoreLocation
 class MapViewController: UIViewController {
+    @IBOutlet weak var placeSearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
-    var MapDataManager = MapKitManager()
+    var completer : MKLocalSearchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
+    var nearbyPlaces = [String]()
+    var mapDataManager = MapKitManager()
     var overlays = [MKOverlay]()
     var annotations = [MKPointAnnotation]()
     var features = [GeoJSONFeature]()
@@ -19,19 +23,34 @@ class MapViewController: UIViewController {
     //TODO: Rapihin Parsing GEOJSON (Jadiin generic)
     override func viewDidLoad() {
         super.viewDidLoad()
+        completer.delegate = self
+        setupSearchBar()
+        placeSearchBar.delegate = self
         do {
-            features = try MapDataManager.getGeoJSONFeatures()
-            decodedGeoJSON = try MapDataManager.parseGeoJSON()
+            features = try mapDataManager.getGeoJSONFeatures()
+            decodedGeoJSON = try mapDataManager.parseGeoJSON()
         } catch let error {
             print(error.localizedDescription)
         }
-        overlays = MapDataManager.getPolygonOverlays()
-        annotations = MapDataManager.createMapAnnotations(from: features)
+        setupMapView()
+    }
+    func setupSearchBar(){
+        NSLayoutConstraint.activate([
+            placeSearchBar.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 50),
+            placeSearchBar.leadingAnchor.constraint(equalTo: mapView.leadingAnchor),
+            placeSearchBar.trailingAnchor.constraint(equalTo: mapView.trailingAnchor),
+            placeSearchBar.bottomAnchor.constraint(equalTo: mapView.bottomAnchor)
+        ])
+    }
+    func setupMapView(){
+        overlays = mapDataManager.getPolygonOverlays()
+        annotations = mapDataManager.createMapAnnotations(from: features)
         mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .followWithHeading
         mapView.addOverlays(overlays)
         mapView.addAnnotations(annotations)
+        
     }
     
 }
@@ -46,8 +65,23 @@ extension MapViewController : MKMapViewDelegate{
         
         return renderer
     }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Custom Annotation?
+        if annotation is MKUserLocation{
+            return nil
+        }
+        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "Anot")
+        annotationView.canShowCallout = true
+        return annotationView
+        
+    }
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
         //TODO: Munculin nearby places?
+        Task{
+            nearbyPlaces = await mapDataManager.getNearestPlace(from: annotation.coordinate)
+        }
+        
+        print(nearbyPlaces)
     }
     //TODO: Picker buat legend?
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
@@ -58,7 +92,7 @@ extension MapViewController : MKMapViewDelegate{
                 for geo in feature.geometry{
                     guard let overlay = geo as? MKOverlay else {continue}
                     if overlay.boundingMapRect.contains(userMapPoint){
-                        MapDataManager.userInStation = true
+                        mapDataManager.userInStation = true
                         break
                     }
                     
@@ -68,4 +102,19 @@ extension MapViewController : MKMapViewDelegate{
     }
     
     
+}
+
+extension MapViewController : UISearchBarDelegate, MKLocalSearchCompleterDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        completer.queryFragment = searchText
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //TODO: Perform closest exit gate
+        print(searchResults)
+        placeSearchBar.resignFirstResponder()
+        //TODO: Munculin Rekomendasi Pas dia search
+    }
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        searchResults = completer.results
+    }
 }
