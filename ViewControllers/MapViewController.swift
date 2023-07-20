@@ -9,21 +9,26 @@ import UIKit
 import MapKit
 import CoreLocation
 class MapViewController: UIViewController {
+    @IBOutlet weak var recommendationTableView: UITableView!
     @IBOutlet weak var placeSearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
-    var completer : MKLocalSearchCompleter = MKLocalSearchCompleter()
-    var searchResults = [MKLocalSearchCompletion]()
-    var nearbyPlaces = [String]()
-    var mapDataManager = MapKitManager()
-    var overlays = [MKOverlay]()
-    var annotations = [MKPointAnnotation]()
-    var features = [GeoJSONFeature]()
-    var decodedGeoJSON = [MKGeoJSONObject]()
-    var locationManager = LocationManager.shared
+    private var completer : MKLocalSearchCompleter = MKLocalSearchCompleter()
+    private var searchResults = [MKLocalSearchCompletion]()
+    private var nearbyPlaces = [String]()
+    private var mapDataManager = MapKitManager()
+    private var overlays = [MKOverlay]()
+    private var annotations = [MKPointAnnotation]()
+    private var features = [GeoJSONFeature]()
+    private var decodedGeoJSON = [MKGeoJSONObject]()
+    private var locationManager = LocationManager.shared
+    private var closestGate = [String?? : Double]()
     //TODO: Rapihin Parsing GEOJSON (Jadiin generic)
     override func viewDidLoad() {
         super.viewDidLoad()
         completer.delegate = self
+        recommendationTableView.delegate = self
+        recommendationTableView.dataSource = self
+        recommendationTableView.register(UINib(nibName: "RecommendationCell", bundle: nil), forCellReuseIdentifier: "recCell")
         setupSearchBar()
         placeSearchBar.delegate = self
         do {
@@ -75,14 +80,11 @@ extension MapViewController : MKMapViewDelegate{
         return annotationView
         
     }
-    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-        //TODO: Munculin nearby places?
-        Task{
-            nearbyPlaces = await mapDataManager.getNearestPlace(from: annotation.coordinate)
-        }
-        
-        print(nearbyPlaces)
-    }
+    //    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+    //        Task{
+    //            nearbyPlaces = await mapDataManager.getNearestPlace(from: annotation.coordinate)
+    //        }
+    //    }
     //TODO: Picker buat legend?
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         guard let userLocation = LocationManager.shared.location else {return}
@@ -106,15 +108,63 @@ extension MapViewController : MKMapViewDelegate{
 
 extension MapViewController : UISearchBarDelegate, MKLocalSearchCompleterDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        completer.queryFragment = searchText
+        if searchText == ""{
+            recommendationTableView.reloadData()
+            recommendationTableView.isHidden = true
+            
+        }
+        else{
+            recommendationTableView.isHidden = false
+            recommendationTableView.reloadData()
+            completer.queryFragment = searchText
+        }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //TODO: Perform closest exit gate
-        print(searchResults)
+        recommendationTableView.reloadData()
         placeSearchBar.resignFirstResponder()
-        //TODO: Munculin Rekomendasi Pas dia search
     }
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         searchResults = completer.results
+        recommendationTableView.reloadData()
+    }
+    func calculateClosestDistance(to destinationCoordinate : CLLocationCoordinate2D){
+        for pinPoint in annotations{
+            let sourceLocation = CLLocation(latitude: pinPoint.coordinate.latitude, longitude: pinPoint.coordinate.longitude)
+            let destinationLocation = CLLocation(latitude: destinationCoordinate.latitude, longitude: destinationCoordinate.longitude)
+            let distance = sourceLocation.distance(from: destinationLocation)
+            closestGate[pinPoint.title] = distance
+        }
+        guard let min = closestGate.min(by: {$0.value < $1.value}) else {return}
+        print(min)
+        closestGate = [:]
+        
+    }
+    
+    
+}
+
+extension MapViewController : UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recCell", for: indexPath) as! RecommendationCell
+        cell.imageLegend.image = UIImage(systemName: "location")
+        cell.placeName.text = searchResults[indexPath.row].title
+        cell.placeDescription.text = searchResults[indexPath.row].subtitle
+        return cell
+        
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO: Perform closest exit gate
+        let selectedDestination = searchResults[indexPath.row]
+        var closestCoordinate = CLLocationCoordinate2D()
+        Task{
+            closestCoordinate = await mapDataManager.getNearestPlace(from: selectedDestination)
+            calculateClosestDistance(to: closestCoordinate)
+        }
     }
 }
+
