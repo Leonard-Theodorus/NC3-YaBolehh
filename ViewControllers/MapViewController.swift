@@ -10,7 +10,10 @@ import MapKit
 import CoreLocation
 class MapViewController: UIViewController {
     weak var mapDelegate : MapViewControllerDelegate?
+    weak var detailDelegate : DetailViewControllerDelegate?
     @IBOutlet weak var mapView: MKMapView!
+    fileprivate let sheetViewController = SheetPresentationController()
+    fileprivate var sheetNavController = UINavigationController()
     private var mapDataManager = MapKitManager()
     private var overlays = [MKOverlay]()
     private var annotations = [MKPointAnnotation]()
@@ -20,6 +23,7 @@ class MapViewController: UIViewController {
     //TODO: Rapihin Parsing GEOJSON (Jadiin generic)
     override func viewDidLoad() {
         super.viewDidLoad()
+        sheetNavController = UINavigationController(rootViewController: sheetViewController)
         do {
             features = try mapDataManager.getGeoJSONFeatures()
             decodedGeoJSON = try mapDataManager.parseGeoJSON()
@@ -29,7 +33,9 @@ class MapViewController: UIViewController {
         setupMapView()
     }
     override func viewDidAppear(_ animated: Bool) {
-        prepareSheet()
+        if !sheetNavController.isModalInPresentation{
+            prepareSheet()
+        }
     }
     func setupMapView(){
         overlays = mapDataManager.getPolygonOverlays()
@@ -42,12 +48,11 @@ class MapViewController: UIViewController {
         
     }
     func prepareSheet(){
-        let vcToBePresented = SheetPresentationController()
-        self.mapDelegate = vcToBePresented
+        self.mapDelegate = sheetViewController
         mapDelegate?.getAnnotations(annotations: annotations)
-        let navigationController = UINavigationController(rootViewController: vcToBePresented)
-        navigationController.isModalInPresentation = true
-        if let sheet = navigationController.sheetPresentationController{
+        mapDelegate?.getSender(sender: self)
+        sheetNavController.isModalInPresentation = true
+        if let sheet = sheetNavController.sheetPresentationController{
             let smallDetentIdentifier = UISheetPresentationController.Detent.Identifier("small")
             let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallDetentIdentifier) { context in
                 return 0.2 * context.maximumDetentValue
@@ -60,27 +65,7 @@ class MapViewController: UIViewController {
             sheet.largestUndimmedDetentIdentifier = smallDetentIdentifier
             
         }
-        present(navigationController, animated: true)
-    }
-    
-    func prepareDetailSheet(){
-        let vcToBePresented = SheetPresentationController()
-        let navigationController = UINavigationController(rootViewController: vcToBePresented)
-        navigationController.isModalInPresentation = true
-        if let sheet = navigationController.sheetPresentationController{
-            let smallDetentIdentifier = UISheetPresentationController.Detent.Identifier("small")
-            let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallDetentIdentifier) { context in
-                return 0.2 * context.maximumDetentValue
-            }
-            sheet.detents = [smallDetent ,.medium(), .large()]
-            sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 20
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.selectedDetentIdentifier = smallDetentIdentifier
-            sheet.largestUndimmedDetentIdentifier = smallDetentIdentifier
-            
-        }
-        present(navigationController, animated: true)
+        present(sheetNavController, animated: true)
     }
 }
 extension MapViewController : MKMapViewDelegate{
@@ -123,15 +108,26 @@ extension MapViewController : MKMapViewDelegate{
     
     
 }
-
 extension MapViewController : SheetPresentationControllerDelegate{
-    func closestGateDetail(closestGate: [String : Double]) {
-        //TODO: Pindahin ini ke VC navigator
-
+    func closestGateDetail(closestGate: [String : Double], destination : String, returnBacktoSender sender: UIViewController) {
+        guard let navigationController else { return }
+        let detailVc = NavigationDetailViewController()
+        self.detailDelegate = detailVc
+        if let exitGate = closestGate.keys.first{
+            detailDelegate?.getDetails(exitGate: exitGate, destination: destination)
+        }
+        sheetNavController.isModalInPresentation = false
+        sheetNavController.dismiss(animated: true)
+        navigationController.pushViewController(detailVc, animated: true)
     }
     
 }
 
 protocol MapViewControllerDelegate : AnyObject{
     func getAnnotations(annotations : [MKPointAnnotation])
+    func getSender(sender : UIViewController)
+}
+
+protocol DetailViewControllerDelegate : AnyObject{
+    func getDetails(exitGate : String, destination : String)
 }

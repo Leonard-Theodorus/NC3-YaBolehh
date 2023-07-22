@@ -7,12 +7,9 @@
 
 import UIKit
 import MapKit
-
-let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-let mapVc = mainStoryboard.instantiateViewController(withIdentifier: "mapVc") as? MapViewController
-
 class SheetPresentationController: UIViewController{
     weak var delegate : SheetPresentationControllerDelegate?
+    private var senderVc : UIViewController?
     private var mapDataManager = MapKitManager()
     private var annotations = [MKPointAnnotation]()
     fileprivate let cellReuseId = "recCell"
@@ -23,7 +20,7 @@ class SheetPresentationController: UIViewController{
     @IBOutlet weak var recommendationTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = mapVc
+        self.delegate = senderVc as? MapViewController
         completer.delegate = self
         destinationSearchBar.delegate = self
         recommendationTableView.delegate = self
@@ -84,21 +81,26 @@ extension SheetPresentationController : UITableViewDelegate, UITableViewDataSour
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let senderVc else {return}
         let selectedDestination = searchResults[indexPath.row]
         var closestCoordinate = CLLocationCoordinate2D()
         Task{
             closestCoordinate = await mapDataManager.getNearestPlace(from: selectedDestination)
-            delegate?.closestGateDetail(closestGate: calculateClosestDistance(to: closestCoordinate))
+            delegate?.closestGateDetail(closestGate: calculateClosestDistance(to: closestCoordinate), destination: selectedDestination.title, returnBacktoSender: senderVc)
         }
         
     }
 }
 extension SheetPresentationController : MapViewControllerDelegate{
+    func getSender(sender: UIViewController) {
+        senderVc = sender
+    }
+    
     func getAnnotations(annotations: [MKPointAnnotation]) {
         self.annotations = annotations
     }
     
 }
 protocol SheetPresentationControllerDelegate : AnyObject{
-    func closestGateDetail(closestGate : [String : Double])
+    func closestGateDetail(closestGate : [String : Double], destination : String, returnBacktoSender sender : UIViewController)
 }
