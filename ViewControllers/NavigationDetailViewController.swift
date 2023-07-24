@@ -11,7 +11,7 @@ class NavigationDetailViewController: UIViewController {
     var destinationLabelText = ""
     var gateLabel = ""
     @IBOutlet weak var imageDirectionScrollView: UIScrollView!
-    
+    @IBOutlet weak var nearestStationLabel: UILabel!
     @IBOutlet weak var exitGateLabel: UILabel!
     
     @IBOutlet weak var destinationLabel: UILabel!
@@ -19,7 +19,6 @@ class NavigationDetailViewController: UIViewController {
         super.viewDidLoad()
         setupLabels()
         setupScrollView()
-        // Do any additional setup after loading the view.
     }
 
 }
@@ -54,7 +53,5 @@ extension NavigationDetailViewController : DetailViewControllerDelegate{
     func getDetails(exitGate: String, destination: String) {
         destinationLabelText = destination
         gateLabel = exitGate
-//        destinationLabel.text = destination
-//        exitGateLabel.text = exitGate
     }
 }
