@@ -13,6 +13,7 @@
                 <outlet property="destinationLabel" destination="JAn-l0-y0S" id="tRK-fD-jRC"/>
                 <outlet property="exitGateLabel" destination="l1R-Gt-JTM" id="vsK-N2-O4v"/>
                 <outlet property="imageDirectionScrollView" destination="qe5-n7-rGm" id="xgc-2Q-ouL"/>
+                <outlet property="nearestStationLabel" destination="riu-F9-4yl" id="XL2-A3-Rd4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,12 +34,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayd-cx-491">
-                    <rect key="frame" x="32" y="220.33333333333334" width="78" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qe5-n7-rGm">
                     <rect key="frame" x="16" y="282" width="361" height="254"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -46,13 +41,27 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="vpN-Mg-dc1"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="ekw-N1-g0y"/>
                 </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayd-cx-491">
+                    <rect key="frame" x="32" y="220.33333333333334" width="78" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stasiun Bundaran HI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riu-F9-4yl">
+                    <rect key="frame" x="32" y="185.33333333333334" width="155" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="l1R-Gt-JTM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="3Ez-eH-7ni"/>
+                <constraint firstItem="riu-F9-4yl" firstAttribute="top" secondItem="JAn-l0-y0S" secondAttribute="bottom" constant="15" id="96x-hL-pbM"/>
                 <constraint firstItem="JAn-l0-y0S" firstAttribute="top" secondItem="l1R-Gt-JTM" secondAttribute="bottom" constant="20" id="QVD-he-Qyk"/>
                 <constraint firstItem="ayd-cx-491" firstAttribute="top" secondItem="JAn-l0-y0S" secondAttribute="bottom" constant="50" id="RCt-Rb-cTK"/>
+                <constraint firstItem="riu-F9-4yl" firstAttribute="leading" secondItem="ayd-cx-491" secondAttribute="leading" id="UIR-JN-vD5"/>
                 <constraint firstItem="ayd-cx-491" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="ZEM-mu-JQh"/>
                 <constraint firstItem="l1R-Gt-JTM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="fXt-Gg-LMs"/>
                 <constraint firstItem="JAn-l0-y0S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="lEI-Cp-UAF"/>
