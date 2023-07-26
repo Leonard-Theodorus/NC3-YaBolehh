@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationDetailViewController" customModule="CobainMaps" customModuleProvider="target">
             <connections>
                 <outlet property="destinationLabel" destination="JAn-l0-y0S" id="tRK-fD-jRC"/>
+                <outlet property="directionsLabel" destination="ayd-cx-491" id="7dn-T0-hLd"/>
                 <outlet property="exitGateLabel" destination="l1R-Gt-JTM" id="vsK-N2-O4v"/>
                 <outlet property="imageDirectionScrollView" destination="qe5-n7-rGm" id="xgc-2Q-ouL"/>
                 <outlet property="nearestStationLabel" destination="riu-F9-4yl" id="XL2-A3-Rd4"/>
@@ -22,14 +23,16 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="exitGate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1R-Gt-JTM">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="exitGate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1R-Gt-JTM">
                     <rect key="frame" x="32" y="109" width="64" height="20.333333333333343"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAn-l0-y0S">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAn-l0-y0S">
                     <rect key="frame" x="32" y="149.33333333333334" width="85" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -41,14 +44,16 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="vpN-Mg-dc1"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="ekw-N1-g0y"/>
                 </scrollView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayd-cx-491">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayd-cx-491">
                     <rect key="frame" x="32" y="220.33333333333334" width="78" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stasiun Bundaran HI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riu-F9-4yl">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stasiun Bundaran HI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riu-F9-4yl">
                     <rect key="frame" x="32" y="185.33333333333334" width="155" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -56,16 +61,6 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstItem="l1R-Gt-JTM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="3Ez-eH-7ni"/>
-                <constraint firstItem="riu-F9-4yl" firstAttribute="top" secondItem="JAn-l0-y0S" secondAttribute="bottom" constant="15" id="96x-hL-pbM"/>
-                <constraint firstItem="JAn-l0-y0S" firstAttribute="top" secondItem="l1R-Gt-JTM" secondAttribute="bottom" constant="20" id="QVD-he-Qyk"/>
-                <constraint firstItem="ayd-cx-491" firstAttribute="top" secondItem="JAn-l0-y0S" secondAttribute="bottom" constant="50" id="RCt-Rb-cTK"/>
-                <constraint firstItem="riu-F9-4yl" firstAttribute="leading" secondItem="ayd-cx-491" secondAttribute="leading" id="UIR-JN-vD5"/>
-                <constraint firstItem="ayd-cx-491" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="ZEM-mu-JQh"/>
-                <constraint firstItem="l1R-Gt-JTM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="fXt-Gg-LMs"/>
-                <constraint firstItem="JAn-l0-y0S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="lEI-Cp-UAF"/>
-            </constraints>
             <point key="canvasLocation" x="5.343511450381679" y="20.422535211267608"/>
         </view>
     </objects>

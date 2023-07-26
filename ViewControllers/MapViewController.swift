@@ -108,6 +108,7 @@ extension MapViewController : MKMapViewDelegate{
     
     
 }
+
 extension MapViewController : SheetPresentationControllerDelegate{
     func closestGateDetail(closestGate: [String : Double], destination : String, returnBacktoSender sender: UIViewController) {
         guard let navigationController else { return }
