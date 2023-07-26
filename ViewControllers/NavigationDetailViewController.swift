@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SnapKit
 class NavigationDetailViewController: UIViewController {
     var destinationLabelText = ""
     var gateLabel = ""
@@ -14,6 +14,7 @@ class NavigationDetailViewController: UIViewController {
     @IBOutlet weak var nearestStationLabel: UILabel!
     @IBOutlet weak var exitGateLabel: UILabel!
     
+    @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +24,29 @@ class NavigationDetailViewController: UIViewController {
 
 }
 extension NavigationDetailViewController{
+    func configureConstraints(){
+        exitGateLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.leading.equalToSuperview().offset(32)
+        }
+        destinationLabel.snp.makeConstraints { make in
+            make.top.equalTo(exitGateLabel.snp.bottom).offset(20)
+            make.leading.equalTo(exitGateLabel.snp.leading)
+        }
+        nearestStationLabel.snp.makeConstraints { make in
+            make.top.equalTo(destinationLabel.snp.bottom).offset(20)
+            make.leading.equalTo(exitGateLabel.snp.leading)
+        }
+        directionsLabel.snp.makeConstraints { make in
+            make.top.equalTo(nearestStationLabel.snp.bottom).offset(20)
+            make.leading.equalTo(exitGateLabel.snp.leading)
+        }
+        
+    }
     func setupLabels(){
         exitGateLabel.text = "Closest Exit Through " + "\(gateLabel)"
         destinationLabel.text = destinationLabelText
+        configureConstraints()
         
     }
     func setupScrollView(){
