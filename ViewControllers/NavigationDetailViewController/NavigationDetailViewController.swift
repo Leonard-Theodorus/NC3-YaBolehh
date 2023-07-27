@@ -13,7 +13,6 @@ class NavigationDetailViewController: UIViewController {
     @IBOutlet weak var imageDirectionScrollView: UIScrollView!
     @IBOutlet weak var nearestStationLabel: UILabel!
     @IBOutlet weak var exitGateLabel: UILabel!
-    
     @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     override func viewDidLoad() {
@@ -25,6 +24,7 @@ class NavigationDetailViewController: UIViewController {
 }
 extension NavigationDetailViewController{
     func configureConstraints(){
+        guard let navigationController else {return}
         exitGateLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)
             make.leading.equalToSuperview().offset(32)
@@ -70,9 +70,3 @@ extension NavigationDetailViewController{
     }
 }
 
-extension NavigationDetailViewController : DetailViewControllerDelegate{
-    func getDetails(exitGate: String, destination: String) {
-        destinationLabelText = destination
-        gateLabel = exitGate
-    }
-}
