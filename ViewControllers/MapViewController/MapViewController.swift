@@ -8,17 +8,18 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SnapKit
 class MapViewController: UIViewController {
     weak var mapDelegate : MapViewControllerDelegate?
     weak var detailDelegate : DetailViewControllerDelegate?
+    var mapDataManager = MapKitManager()
+    var decodedGeoJSON = [MKGeoJSONObject]()
+    var sheetNavController = UINavigationController()
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let sheetViewController = SheetPresentationController()
-    fileprivate var sheetNavController = UINavigationController()
-    private var mapDataManager = MapKitManager()
     private var overlays = [MKOverlay]()
     private var annotations = [MKPointAnnotation]()
     private var features = [GeoJSONFeature]()
-    private var decodedGeoJSON = [MKGeoJSONObject]()
     private var locationManager = LocationManager.shared
     //TODO: Rapihin Parsing GEOJSON (Jadiin generic)
     override func viewDidLoad() {
@@ -45,7 +46,7 @@ class MapViewController: UIViewController {
         mapView.userTrackingMode = .followWithHeading
         mapView.addOverlays(overlays)
         mapView.addAnnotations(annotations)
-        
+        setupMapViewConstraints()
     }
     func prepareSheet(){
         self.mapDelegate = sheetViewController
@@ -68,60 +69,15 @@ class MapViewController: UIViewController {
         present(sheetNavController, animated: true)
     }
 }
-extension MapViewController : MKMapViewDelegate{
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        var renderer = MKPolygonRenderer()
-        if let polygon = overlay as? MKPolygon{
-            renderer = MKPolygonRenderer(polygon: polygon)
-            renderer.strokeColor = .red
-            renderer.lineWidth = 0.7
-        }
-        
-        return renderer
-    }
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //Custom Annotation?
-        if annotation is MKUserLocation{
-            return nil
-        }
-        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "Anot")
-        annotationView.canShowCallout = true
-        return annotationView
-        
-    }
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        guard let userLocation = LocationManager.shared.location else {return}
-        let userMapPoint = MKMapPoint(userLocation.coordinate)
-        for item in decodedGeoJSON{
-            if let feature = item as? MKGeoJSONFeature{
-                for geo in feature.geometry{
-                    guard let overlay = geo as? MKOverlay else {continue}
-                    if overlay.boundingMapRect.contains(userMapPoint){
-                        mapDataManager.userInStation = true
-                        break
-                    }
-                    
-                }
-            }
+extension MapViewController{
+    func setupMapViewConstraints(){
+        mapView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
-    
-    
-}
-
-extension MapViewController : SheetPresentationControllerDelegate{
-    func closestGateDetail(closestGate: [String : Double], destination : String, returnBacktoSender sender: UIViewController) {
-        guard let navigationController else { return }
-        let detailVc = NavigationDetailViewController()
-        self.detailDelegate = detailVc
-        if let exitGate = closestGate.keys.first{
-            detailDelegate?.getDetails(exitGate: exitGate, destination: destination)
-        }
-        sheetNavController.isModalInPresentation = false
-        sheetNavController.dismiss(animated: true)
-        navigationController.pushViewController(detailVc, animated: true)
-    }
-    
 }
 
 protocol MapViewControllerDelegate : AnyObject{
