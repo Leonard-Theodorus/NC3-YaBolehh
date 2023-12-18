@@ -11,14 +11,22 @@ import MapKit
 
 extension MapViewController : MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        var renderer = MKPolygonRenderer()
+        let renderer = MKOverlayRenderer()
         if let polygon = overlay as? MKPolygon{
-            renderer = MKPolygonRenderer(polygon: polygon)
+            let renderer = MKPolygonRenderer(polygon: polygon)
             renderer.strokeColor = .red
             renderer.lineWidth = 0.7
+            return renderer
         }
-        
+        if overlay is MKPolyline{
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = .blue
+            renderer.lineCap = .round
+            renderer.lineWidth = 0.8
+            return renderer
+        }
         return renderer
+        
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         //Custom Annotation?

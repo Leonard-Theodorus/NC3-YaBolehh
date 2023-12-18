@@ -1,0 +1,950 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B899B2C2F2999DE26FAB5BFE /* Pods_CobainMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8A62C2F72560CFD0BD2313 /* Pods_CobainMaps.framework */; };
+		D75B0E582A64EDB400293708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E572A64EDB400293708 /* AppDelegate.swift */; };
+		D75B0E5A2A64EDB400293708 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E592A64EDB400293708 /* SceneDelegate.swift */; };
+		D75B0E5F2A64EDB400293708 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75B0E5D2A64EDB400293708 /* Main.storyboard */; };
+		D75B0E612A64EDB600293708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D75B0E602A64EDB600293708 /* Assets.xcassets */; };
+		D75B0E642A64EDB600293708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75B0E622A64EDB600293708 /* LaunchScreen.storyboard */; };
+		D75B0E6F2A64EDB600293708 /* CobainMapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E6E2A64EDB600293708 /* CobainMapsTests.swift */; };
+		D75B0E792A64EDB600293708 /* CobainMapsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E782A64EDB600293708 /* CobainMapsUITests.swift */; };
+		D75B0E7B2A64EDB600293708 /* CobainMapsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E7A2A64EDB600293708 /* CobainMapsUITestsLaunchTests.swift */; };
+		D75B0E8C2A659DF600293708 /* MapKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E892A65585400293708 /* MapKitManager.swift */; };
+		D75B0E8E2A65A2FF00293708 /* HI.geojson in Resources */ = {isa = PBXBuildFile; fileRef = D75B0E8D2A65A2FF00293708 /* HI.geojson */; };
+		D75B0E912A66353200293708 /* GeoJSONFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E902A66353200293708 /* GeoJSONFeatures.swift */; };
+		D75B0E942A664C6D00293708 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E932A664C6D00293708 /* LocationManager.swift */; };
+		D75B0E9E2A6701A400293708 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B0E9C2A6701A400293708 /* MapViewController.swift */; };
+		D75B0E9F2A6701A400293708 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75B0E9D2A6701A400293708 /* MapViewController.xib */; };
+		D777162A2A68D16600D1E88D /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77716282A68D16600D1E88D /* RecommendationCell.swift */; };
+		D777162B2A68D16600D1E88D /* RecommendationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77716292A68D16600D1E88D /* RecommendationCell.xib */; };
+		D777162E2A6A1AC600D1E88D /* SheetPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D777162C2A6A1AC600D1E88D /* SheetPresentationController.swift */; };
+		D777162F2A6A1AC600D1E88D /* SheetPresentationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D777162D2A6A1AC600D1E88D /* SheetPresentationController.xib */; };
+		D77716322A6AE55700D1E88D /* NavigationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77716302A6AE55700D1E88D /* NavigationDetailViewController.swift */; };
+		D77716332A6AE55700D1E88D /* NavigationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77716312A6AE55700D1E88D /* NavigationDetailViewController.xib */; };
+		D77F5EA42A7233A400AF2D39 /* MapViewController + MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F5EA32A7233A400AF2D39 /* MapViewController + MapViewDelegate.swift */; };
+		D77F5EA72A72343A00AF2D39 /* MapViewController + SheetPresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F5EA62A72343A00AF2D39 /* MapViewController + SheetPresentationDelegate.swift */; };
+		D77F5EAC2A72355E00AF2D39 /* SheetPresentationController + SearchDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F5EAB2A72355E00AF2D39 /* SheetPresentationController + SearchDelegates.swift */; };
+		D77F5EAE2A7235ED00AF2D39 /* SheetPresentationController + TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F5EAD2A7235ED00AF2D39 /* SheetPresentationController + TableViewDelegate.swift */; };
+		D77F5EB02A72364100AF2D39 /* SheetPresentationController + MapViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F5EAF2A72364100AF2D39 /* SheetPresentationController + MapViewControllerDelegate.swift */; };
+		D77F5EB42A7236BE00AF2D39 /* NavigationDetailViewController + DetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F5EB32A7236BE00AF2D39 /* NavigationDetailViewController + DetailViewControllerDelegate.swift */; };
+		D7D3C3F72AB1EE8D00CBEBC8 /* map-4.geojson in Resources */ = {isa = PBXBuildFile; fileRef = D7D3C3F62AB1EE8D00CBEBC8 /* map-4.geojson */; };
+		D7D3C3FA2AB1F02000CBEBC8 /* Connection in Frameworks */ = {isa = PBXBuildFile; productRef = D7D3C3F92AB1F02000CBEBC8 /* Connection */; };
+		E1D4A458BDBA23892397E3F9 /* Pods_CobainMaps_CobainMapsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E533A5C5F6A97B6911D68E49 /* Pods_CobainMaps_CobainMapsUITests.framework */; };
+		E6FD13EF051E131862B919A6 /* Pods_CobainMapsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A566269CF3E08039AD7350 /* Pods_CobainMapsTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D75B0E6B2A64EDB600293708 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D75B0E4C2A64EDB400293708 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D75B0E532A64EDB400293708;
+			remoteInfo = CobainMaps;
+		};
+		D75B0E752A64EDB600293708 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D75B0E4C2A64EDB400293708 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D75B0E532A64EDB400293708;
+			remoteInfo = CobainMaps;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26D939CE5C981CC5CF0C248C /* Pods-CobainMapsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CobainMapsTests.debug.xcconfig"; path = "Target Support Files/Pods-CobainMapsTests/Pods-CobainMapsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E1BA9CB6D25E094AF4A08C0 /* Pods-CobainMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CobainMaps.debug.xcconfig"; path = "Target Support Files/Pods-CobainMaps/Pods-CobainMaps.debug.xcconfig"; sourceTree = "<group>"; };
+		82A8F3C5A163D0EDA4351A18 /* Pods-CobainMapsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CobainMapsTests.release.xcconfig"; path = "Target Support Files/Pods-CobainMapsTests/Pods-CobainMapsTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC8A62C2F72560CFD0BD2313 /* Pods_CobainMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CobainMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1A566269CF3E08039AD7350 /* Pods_CobainMapsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CobainMapsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75B0E542A64EDB400293708 /* CobainMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CobainMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75B0E572A64EDB400293708 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D75B0E592A64EDB400293708 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D75B0E5E2A64EDB400293708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D75B0E602A64EDB600293708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D75B0E632A64EDB600293708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D75B0E652A64EDB600293708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D75B0E6A2A64EDB600293708 /* CobainMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CobainMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75B0E6E2A64EDB600293708 /* CobainMapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CobainMapsTests.swift; sourceTree = "<group>"; };
+		D75B0E742A64EDB600293708 /* CobainMapsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CobainMapsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75B0E782A64EDB600293708 /* CobainMapsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CobainMapsUITests.swift; sourceTree = "<group>"; };
+		D75B0E7A2A64EDB600293708 /* CobainMapsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CobainMapsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D75B0E892A65585400293708 /* MapKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitManager.swift; sourceTree = "<group>"; };
+		D75B0E8D2A65A2FF00293708 /* HI.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = HI.geojson; sourceTree = "<group>"; };
+		D75B0E902A66353200293708 /* GeoJSONFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONFeatures.swift; sourceTree = "<group>"; };
+		D75B0E932A664C6D00293708 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D75B0E9C2A6701A400293708 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D75B0E9D2A6701A400293708 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		D77716282A68D16600D1E88D /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
+		D77716292A68D16600D1E88D /* RecommendationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationCell.xib; sourceTree = "<group>"; };
+		D777162C2A6A1AC600D1E88D /* SheetPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentationController.swift; sourceTree = "<group>"; };
+		D777162D2A6A1AC600D1E88D /* SheetPresentationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheetPresentationController.xib; sourceTree = "<group>"; };
+		D77716302A6AE55700D1E88D /* NavigationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDetailViewController.swift; sourceTree = "<group>"; };
+		D77716312A6AE55700D1E88D /* NavigationDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationDetailViewController.xib; sourceTree = "<group>"; };
+		D77F5EA32A7233A400AF2D39 /* MapViewController + MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController + MapViewDelegate.swift"; sourceTree = "<group>"; };
+		D77F5EA62A72343A00AF2D39 /* MapViewController + SheetPresentationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController + SheetPresentationDelegate.swift"; sourceTree = "<group>"; };
+		D77F5EAB2A72355E00AF2D39 /* SheetPresentationController + SearchDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SheetPresentationController + SearchDelegates.swift"; sourceTree = "<group>"; };
+		D77F5EAD2A7235ED00AF2D39 /* SheetPresentationController + TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SheetPresentationController + TableViewDelegate.swift"; sourceTree = "<group>"; };
+		D77F5EAF2A72364100AF2D39 /* SheetPresentationController + MapViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SheetPresentationController + MapViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		D77F5EB32A7236BE00AF2D39 /* NavigationDetailViewController + DetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationDetailViewController + DetailViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		D7D3C3F62AB1EE8D00CBEBC8 /* map-4.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "map-4.geojson"; sourceTree = "<group>"; };
+		E533A5C5F6A97B6911D68E49 /* Pods_CobainMaps_CobainMapsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CobainMaps_CobainMapsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C2E90EF648C650AEDBC1A7 /* Pods-CobainMaps-CobainMapsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CobainMaps-CobainMapsUITests.debug.xcconfig"; path = "Target Support Files/Pods-CobainMaps-CobainMapsUITests/Pods-CobainMaps-CobainMapsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC0B4FBE86B9F61D793D74EF /* Pods-CobainMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CobainMaps.release.xcconfig"; path = "Target Support Files/Pods-CobainMaps/Pods-CobainMaps.release.xcconfig"; sourceTree = "<group>"; };
+		F93A766F567B9D291ED0F920 /* Pods-CobainMaps-CobainMapsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CobainMaps-CobainMapsUITests.release.xcconfig"; path = "Target Support Files/Pods-CobainMaps-CobainMapsUITests/Pods-CobainMaps-CobainMapsUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D75B0E512A64EDB400293708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7D3C3FA2AB1F02000CBEBC8 /* Connection in Frameworks */,
+				B899B2C2F2999DE26FAB5BFE /* Pods_CobainMaps.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B0E672A64EDB600293708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6FD13EF051E131862B919A6 /* Pods_CobainMapsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B0E712A64EDB600293708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D4A458BDBA23892397E3F9 /* Pods_CobainMaps_CobainMapsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		169F6AB207A1CB1CD2DFC3C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E1BA9CB6D25E094AF4A08C0 /* Pods-CobainMaps.debug.xcconfig */,
+				EC0B4FBE86B9F61D793D74EF /* Pods-CobainMaps.release.xcconfig */,
+				E9C2E90EF648C650AEDBC1A7 /* Pods-CobainMaps-CobainMapsUITests.debug.xcconfig */,
+				F93A766F567B9D291ED0F920 /* Pods-CobainMaps-CobainMapsUITests.release.xcconfig */,
+				26D939CE5C981CC5CF0C248C /* Pods-CobainMapsTests.debug.xcconfig */,
+				82A8F3C5A163D0EDA4351A18 /* Pods-CobainMapsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		78CE5AED9C83037F716C60B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC8A62C2F72560CFD0BD2313 /* Pods_CobainMaps.framework */,
+				E533A5C5F6A97B6911D68E49 /* Pods_CobainMaps_CobainMapsUITests.framework */,
+				D1A566269CF3E08039AD7350 /* Pods_CobainMapsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D75B0E4B2A64EDB400293708 = {
+			isa = PBXGroup;
+			children = (
+				D77F5EA82A7234BB00AF2D39 /* Views */,
+				D75B0E992A66FD2000293708 /* ViewControllers */,
+				D75B0E922A664C5400293708 /* ViewModel */,
+				D75B0E8F2A66352400293708 /* Model */,
+				D75B0E882A65584500293708 /* Geo */,
+				D75B0E562A64EDB400293708 /* CobainMaps */,
+				D75B0E6D2A64EDB600293708 /* CobainMapsTests */,
+				D75B0E772A64EDB600293708 /* CobainMapsUITests */,
+				D75B0E552A64EDB400293708 /* Products */,
+				169F6AB207A1CB1CD2DFC3C5 /* Pods */,
+				78CE5AED9C83037F716C60B8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D75B0E552A64EDB400293708 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D75B0E542A64EDB400293708 /* CobainMaps.app */,
+				D75B0E6A2A64EDB600293708 /* CobainMapsTests.xctest */,
+				D75B0E742A64EDB600293708 /* CobainMapsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D75B0E562A64EDB400293708 /* CobainMaps */ = {
+			isa = PBXGroup;
+			children = (
+				D75B0E572A64EDB400293708 /* AppDelegate.swift */,
+				D75B0E592A64EDB400293708 /* SceneDelegate.swift */,
+				D75B0E5D2A64EDB400293708 /* Main.storyboard */,
+				D75B0E602A64EDB600293708 /* Assets.xcassets */,
+				D75B0E622A64EDB600293708 /* LaunchScreen.storyboard */,
+				D75B0E652A64EDB600293708 /* Info.plist */,
+			);
+			path = CobainMaps;
+			sourceTree = "<group>";
+		};
+		D75B0E6D2A64EDB600293708 /* CobainMapsTests */ = {
+			isa = PBXGroup;
+			children = (
+				D75B0E6E2A64EDB600293708 /* CobainMapsTests.swift */,
+			);
+			path = CobainMapsTests;
+			sourceTree = "<group>";
+		};
+		D75B0E772A64EDB600293708 /* CobainMapsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D75B0E782A64EDB600293708 /* CobainMapsUITests.swift */,
+				D75B0E7A2A64EDB600293708 /* CobainMapsUITestsLaunchTests.swift */,
+			);
+			path = CobainMapsUITests;
+			sourceTree = "<group>";
+		};
+		D75B0E882A65584500293708 /* Geo */ = {
+			isa = PBXGroup;
+			children = (
+				D7D3C3F62AB1EE8D00CBEBC8 /* map-4.geojson */,
+				D75B0E8D2A65A2FF00293708 /* HI.geojson */,
+			);
+			path = Geo;
+			sourceTree = "<group>";
+		};
+		D75B0E8F2A66352400293708 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D75B0E902A66353200293708 /* GeoJSONFeatures.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D75B0E922A664C5400293708 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D75B0E892A65585400293708 /* MapKitManager.swift */,
+				D75B0E932A664C6D00293708 /* LocationManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D75B0E992A66FD2000293708 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D77F5EB12A72366900AF2D39 /* NavigationDetailViewController */,
+				D77F5EA92A7234FA00AF2D39 /* SheetPresentationController */,
+				D77F5EA22A72337600AF2D39 /* MapViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D77F5EA22A72337600AF2D39 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D77F5EA52A72341F00AF2D39 /* Extensions */,
+				D75B0E9C2A6701A400293708 /* MapViewController.swift */,
+				D75B0E9D2A6701A400293708 /* MapViewController.xib */,
+			);
+			path = MapViewController;
+			sourceTree = "<group>";
+		};
+		D77F5EA52A72341F00AF2D39 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D77F5EA32A7233A400AF2D39 /* MapViewController + MapViewDelegate.swift */,
+				D77F5EA62A72343A00AF2D39 /* MapViewController + SheetPresentationDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D77F5EA82A7234BB00AF2D39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D77716282A68D16600D1E88D /* RecommendationCell.swift */,
+				D77716292A68D16600D1E88D /* RecommendationCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D77F5EA92A7234FA00AF2D39 /* SheetPresentationController */ = {
+			isa = PBXGroup;
+			children = (
+				D77F5EAA2A72350C00AF2D39 /* Extensions */,
+				D777162C2A6A1AC600D1E88D /* SheetPresentationController.swift */,
+				D777162D2A6A1AC600D1E88D /* SheetPresentationController.xib */,
+			);
+			path = SheetPresentationController;
+			sourceTree = "<group>";
+		};
+		D77F5EAA2A72350C00AF2D39 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D77F5EAB2A72355E00AF2D39 /* SheetPresentationController + SearchDelegates.swift */,
+				D77F5EAD2A7235ED00AF2D39 /* SheetPresentationController + TableViewDelegate.swift */,
+				D77F5EAF2A72364100AF2D39 /* SheetPresentationController + MapViewControllerDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D77F5EB12A72366900AF2D39 /* NavigationDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D77F5EB22A72369500AF2D39 /* Extensions */,
+				D77716302A6AE55700D1E88D /* NavigationDetailViewController.swift */,
+				D77716312A6AE55700D1E88D /* NavigationDetailViewController.xib */,
+			);
+			path = NavigationDetailViewController;
+			sourceTree = "<group>";
+		};
+		D77F5EB22A72369500AF2D39 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D77F5EB32A7236BE00AF2D39 /* NavigationDetailViewController + DetailViewControllerDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D75B0E532A64EDB400293708 /* CobainMaps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75B0E7E2A64EDB600293708 /* Build configuration list for PBXNativeTarget "CobainMaps" */;
+			buildPhases = (
+				DFA9D15FEBAEB9AB982D1C48 /* [CP] Check Pods Manifest.lock */,
+				D75B0E502A64EDB400293708 /* Sources */,
+				D75B0E512A64EDB400293708 /* Frameworks */,
+				D75B0E522A64EDB400293708 /* Resources */,
+				F52A508409DB9E2C07B1578A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CobainMaps;
+			packageProductDependencies = (
+				D7D3C3F92AB1F02000CBEBC8 /* Connection */,
+			);
+			productName = CobainMaps;
+			productReference = D75B0E542A64EDB400293708 /* CobainMaps.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D75B0E692A64EDB600293708 /* CobainMapsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75B0E812A64EDB600293708 /* Build configuration list for PBXNativeTarget "CobainMapsTests" */;
+			buildPhases = (
+				69C4BA0A3D4B9BF8C02AF505 /* [CP] Check Pods Manifest.lock */,
+				D75B0E662A64EDB600293708 /* Sources */,
+				D75B0E672A64EDB600293708 /* Frameworks */,
+				D75B0E682A64EDB600293708 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D75B0E6C2A64EDB600293708 /* PBXTargetDependency */,
+			);
+			name = CobainMapsTests;
+			productName = CobainMapsTests;
+			productReference = D75B0E6A2A64EDB600293708 /* CobainMapsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D75B0E732A64EDB600293708 /* CobainMapsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75B0E842A64EDB600293708 /* Build configuration list for PBXNativeTarget "CobainMapsUITests" */;
+			buildPhases = (
+				EBFDE3A769309955284CE94B /* [CP] Check Pods Manifest.lock */,
+				D75B0E702A64EDB600293708 /* Sources */,
+				D75B0E712A64EDB600293708 /* Frameworks */,
+				D75B0E722A64EDB600293708 /* Resources */,
+				4527F2AD666A3506C4B1E7B3 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D75B0E762A64EDB600293708 /* PBXTargetDependency */,
+			);
+			name = CobainMapsUITests;
+			productName = CobainMapsUITests;
+			productReference = D75B0E742A64EDB600293708 /* CobainMapsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D75B0E4C2A64EDB400293708 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					D75B0E532A64EDB400293708 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					D75B0E692A64EDB600293708 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = D75B0E532A64EDB400293708;
+					};
+					D75B0E732A64EDB600293708 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = D75B0E532A64EDB400293708;
+					};
+				};
+			};
+			buildConfigurationList = D75B0E4F2A64EDB400293708 /* Build configuration list for PBXProject "CobainMaps" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D75B0E4B2A64EDB400293708;
+			packageReferences = (
+				D7D3C3F82AB1F02000CBEBC8 /* XCRemoteSwiftPackageReference "Connection" */,
+			);
+			productRefGroup = D75B0E552A64EDB400293708 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D75B0E532A64EDB400293708 /* CobainMaps */,
+				D75B0E692A64EDB600293708 /* CobainMapsTests */,
+				D75B0E732A64EDB600293708 /* CobainMapsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D75B0E522A64EDB400293708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7D3C3F72AB1EE8D00CBEBC8 /* map-4.geojson in Resources */,
+				D75B0E642A64EDB600293708 /* LaunchScreen.storyboard in Resources */,
+				D77716332A6AE55700D1E88D /* NavigationDetailViewController.xib in Resources */,
+				D777162F2A6A1AC600D1E88D /* SheetPresentationController.xib in Resources */,
+				D75B0E9F2A6701A400293708 /* MapViewController.xib in Resources */,
+				D777162B2A68D16600D1E88D /* RecommendationCell.xib in Resources */,
+				D75B0E8E2A65A2FF00293708 /* HI.geojson in Resources */,
+				D75B0E612A64EDB600293708 /* Assets.xcassets in Resources */,
+				D75B0E5F2A64EDB400293708 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B0E682A64EDB600293708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B0E722A64EDB600293708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4527F2AD666A3506C4B1E7B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CobainMaps-CobainMapsUITests/Pods-CobainMaps-CobainMapsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CobainMaps-CobainMapsUITests/Pods-CobainMaps-CobainMapsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CobainMaps-CobainMapsUITests/Pods-CobainMaps-CobainMapsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69C4BA0A3D4B9BF8C02AF505 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CobainMapsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFA9D15FEBAEB9AB982D1C48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CobainMaps-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBFDE3A769309955284CE94B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CobainMaps-CobainMapsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F52A508409DB9E2C07B1578A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CobainMaps/Pods-CobainMaps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CobainMaps/Pods-CobainMaps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CobainMaps/Pods-CobainMaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D75B0E502A64EDB400293708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D777162A2A68D16600D1E88D /* RecommendationCell.swift in Sources */,
+				D75B0E9E2A6701A400293708 /* MapViewController.swift in Sources */,
+				D77716322A6AE55700D1E88D /* NavigationDetailViewController.swift in Sources */,
+				D75B0E582A64EDB400293708 /* AppDelegate.swift in Sources */,
+				D75B0E942A664C6D00293708 /* LocationManager.swift in Sources */,
+				D77F5EAE2A7235ED00AF2D39 /* SheetPresentationController + TableViewDelegate.swift in Sources */,
+				D77F5EAC2A72355E00AF2D39 /* SheetPresentationController + SearchDelegates.swift in Sources */,
+				D75B0E5A2A64EDB400293708 /* SceneDelegate.swift in Sources */,
+				D77F5EA42A7233A400AF2D39 /* MapViewController + MapViewDelegate.swift in Sources */,
+				D75B0E8C2A659DF600293708 /* MapKitManager.swift in Sources */,
+				D77F5EB42A7236BE00AF2D39 /* NavigationDetailViewController + DetailViewControllerDelegate.swift in Sources */,
+				D77F5EB02A72364100AF2D39 /* SheetPresentationController + MapViewControllerDelegate.swift in Sources */,
+				D77F5EA72A72343A00AF2D39 /* MapViewController + SheetPresentationDelegate.swift in Sources */,
+				D75B0E912A66353200293708 /* GeoJSONFeatures.swift in Sources */,
+				D777162E2A6A1AC600D1E88D /* SheetPresentationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B0E662A64EDB600293708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75B0E6F2A64EDB600293708 /* CobainMapsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B0E702A64EDB600293708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75B0E792A64EDB600293708 /* CobainMapsUITests.swift in Sources */,
+				D75B0E7B2A64EDB600293708 /* CobainMapsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D75B0E6C2A64EDB600293708 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D75B0E532A64EDB400293708 /* CobainMaps */;
+			targetProxy = D75B0E6B2A64EDB600293708 /* PBXContainerItemProxy */;
+		};
+		D75B0E762A64EDB600293708 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D75B0E532A64EDB400293708 /* CobainMaps */;
+			targetProxy = D75B0E752A64EDB600293708 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D75B0E5D2A64EDB400293708 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D75B0E5E2A64EDB400293708 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D75B0E622A64EDB600293708 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D75B0E632A64EDB600293708 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D75B0E7C2A64EDB600293708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D75B0E7D2A64EDB600293708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D75B0E7F2A64EDB600293708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E1BA9CB6D25E094AF4A08C0 /* Pods-CobainMaps.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6H4427J3SZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CobainMaps/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(PRODUCT_NAME) For navigation";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.test1.CobainMaps;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D75B0E802A64EDB600293708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC0B4FBE86B9F61D793D74EF /* Pods-CobainMaps.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6H4427J3SZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CobainMaps/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(PRODUCT_NAME) For navigation";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.test1.CobainMaps;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D75B0E822A64EDB600293708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26D939CE5C981CC5CF0C248C /* Pods-CobainMapsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6H4427J3SZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.test1.CobainMapsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CobainMaps.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CobainMaps";
+			};
+			name = Debug;
+		};
+		D75B0E832A64EDB600293708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82A8F3C5A163D0EDA4351A18 /* Pods-CobainMapsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6H4427J3SZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.test1.CobainMapsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CobainMaps.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CobainMaps";
+			};
+			name = Release;
+		};
+		D75B0E852A64EDB600293708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9C2E90EF648C650AEDBC1A7 /* Pods-CobainMaps-CobainMapsUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6H4427J3SZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.test1.CobainMapsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CobainMaps;
+			};
+			name = Debug;
+		};
+		D75B0E862A64EDB600293708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F93A766F567B9D291ED0F920 /* Pods-CobainMaps-CobainMapsUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6H4427J3SZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.test1.CobainMapsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CobainMaps;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D75B0E4F2A64EDB400293708 /* Build configuration list for PBXProject "CobainMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B0E7C2A64EDB600293708 /* Debug */,
+				D75B0E7D2A64EDB600293708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75B0E7E2A64EDB600293708 /* Build configuration list for PBXNativeTarget "CobainMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B0E7F2A64EDB600293708 /* Debug */,
+				D75B0E802A64EDB600293708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75B0E812A64EDB600293708 /* Build configuration list for PBXNativeTarget "CobainMapsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B0E822A64EDB600293708 /* Debug */,
+				D75B0E832A64EDB600293708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75B0E842A64EDB600293708 /* Build configuration list for PBXNativeTarget "CobainMapsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B0E852A64EDB600293708 /* Debug */,
+				D75B0E862A64EDB600293708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D7D3C3F82AB1F02000CBEBC8 /* XCRemoteSwiftPackageReference "Connection" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zntfdr/Connection.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D7D3C3F92AB1F02000CBEBC8 /* Connection */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7D3C3F82AB1F02000CBEBC8 /* XCRemoteSwiftPackageReference "Connection" */;
+			productName = Connection;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D75B0E4C2A64EDB400293708 /* Project object */;
+}

@@ -24,7 +24,6 @@ class NavigationDetailViewController: UIViewController {
 }
 extension NavigationDetailViewController{
     func configureConstraints(){
-        guard let navigationController else {return}
         exitGateLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)
             make.leading.equalToSuperview().offset(32)

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "connection",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/zntfdr/Connection.git",
+      "state" : {
+        "revision" : "90ab1743dd639a705bf7a9a4cce3b9631d23e4c0",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}

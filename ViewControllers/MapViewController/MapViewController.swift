@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import SnapKit
+
 class MapViewController: UIViewController {
     weak var mapDelegate : MapViewControllerDelegate?
     weak var detailDelegate : DetailViewControllerDelegate?
@@ -18,6 +19,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let sheetViewController = SheetPresentationController()
     private var overlays = [MKOverlay]()
+    private var lineOverlay : MKOverlay?
     private var annotations = [MKPointAnnotation]()
     private var features = [GeoJSONFeature]()
     private var locationManager = LocationManager.shared
@@ -32,6 +34,7 @@ class MapViewController: UIViewController {
             print(error.localizedDescription)
         }
         setupMapView()
+        drawRoutes()
     }
     override func viewDidAppear(_ animated: Bool) {
         if !sheetNavController.isModalInPresentation{
@@ -47,7 +50,9 @@ class MapViewController: UIViewController {
         mapView.addOverlays(overlays)
         mapView.addAnnotations(annotations)
         setupMapViewConstraints()
+        mapDataManager.shortestPath()
     }
+    
     func prepareSheet(){
         self.mapDelegate = sheetViewController
         mapDelegate?.getAnnotations(annotations: annotations)
@@ -68,6 +73,17 @@ class MapViewController: UIViewController {
         }
         present(sheetNavController, animated: true)
     }
+    
+    func drawRoutes(){
+        if mapDataManager.routeCoordinates.count == 0{
+            print("No Route Data")
+        }
+        DispatchQueue.main.async {
+            self.lineOverlay = MKPolyline(coordinates: self.mapDataManager.routeCoordinates, count: self.mapDataManager.routeCoordinates.count)
+            self.mapView.addOverlay(self.lineOverlay!, level: .aboveLabels)
+        }
+    }
+    
 }
 extension MapViewController{
     func setupMapViewConstraints(){
